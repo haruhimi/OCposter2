@@ -260,7 +260,8 @@
 
 <script>
   // ---- data (2025年度). 追加年度はここに配列を足すだけで拡張できる ----
-  var DIR = "2025年度学術奨励賞";
+  // 画像・動画はリポジトリ直下の slides フォルダ／各動画ファイルを直接参照する
+  var DIR = "";
   var ENTRIES = [
     {
       award:"grand", awardLabel:"最優秀賞",
@@ -285,9 +286,9 @@
     }
   ];
 
-  function assetUrl(file){ return encodeURI(DIR + "/" + file); }
+  function assetUrl(file){ return encodeURI(file); }
   function slideUrl(slug, n){
-    return encodeURI(DIR + "/slides/" + slug + "/p" + (n<10?"0"+n:n) + ".jpg");
+    return encodeURI("slides/" + slug + "/p" + (n<10?"0"+n:n) + ".jpg");
   }
 
   // ---- build cards ----
