@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -32,7 +33,7 @@
     transition:opacity .4s ease;
   }
   .screen.active{display:flex;opacity:1;}
-
+ 
   /* ---------- COVER ---------- */
   #cover{
     align-items:stretch;justify-content:flex-start;
@@ -107,7 +108,7 @@
     font-size:clamp(11px,1.5vw,15px);
     color:#9aa6c2;letter-spacing:.06em;
   }
-
+ 
   /* ---------- LIST ---------- */
   #list{background:var(--paper);}
   .topbar{
@@ -162,7 +163,7 @@
   .card .media-note{margin-top:1em;display:flex;gap:.6em;flex-wrap:wrap;}
   .chip{font-size:clamp(11px,1.4vw,14px);font-weight:700;color:var(--muted);background:#f1eee6;border-radius:8px;padding:.3em .7em;}
   .chip.v{color:#8a4b00;background:#fbe6cf;}
-
+ 
   /* ---------- DETAIL ---------- */
   #detail{background:#0f1626;color:#fff;}
   .detail-bar{
@@ -206,7 +207,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- ========== COVER ========== -->
 <section id="cover" class="screen active" onclick="go('list')">
   <div class="cover-inner">
@@ -222,7 +223,7 @@
     <div class="foot">立正大学 心理学部 対人・社会心理学科　オープンキャンパス展示</div>
   </div>
 </section>
-
+ 
 <!-- ========== LIST ========== -->
 <section id="list" class="screen">
   <div class="topbar">
@@ -236,7 +237,7 @@
     <div class="cards" id="cards"></div>
   </div>
 </section>
-
+ 
 <!-- ========== DETAIL ========== -->
 <section id="detail" class="screen">
   <div class="detail-bar">
@@ -257,7 +258,7 @@
     <div class="hint" id="hint">上下スクロールでスライドを送れます（ピンチで拡大）</div>
   </div>
 </section>
-
+ 
 <script>
   // ---- data (2025年度). 追加年度はここに配列を足すだけで拡張できる ----
   // 画像・動画はリポジトリ直下の slides フォルダ／各動画ファイルを直接参照する
@@ -285,12 +286,12 @@
       video:"221J20095SaitaniMasaki.mp4"
     }
   ];
-
+ 
   function assetUrl(file){ return encodeURI(file); }
   function slideUrl(slug, n){
     return encodeURI("slides/" + slug + "/p" + (n<10?"0"+n:n) + ".jpg");
   }
-
+ 
   // ---- build cards ----
   (function(){
     var wrap = document.getElementById("cards");
@@ -314,7 +315,7 @@
       wrap.appendChild(card);
     });
   })();
-
+ 
   // ---- screen switching ----
   function go(id){
     document.querySelectorAll(".screen").forEach(function(s){ s.classList.remove("active"); });
@@ -322,7 +323,7 @@
     if(id !== "detail"){ stopVideo(); }
     resetIdle();
   }
-
+ 
   var current = null;
   function openDetail(i){
     current = ENTRIES[i];
@@ -353,7 +354,7 @@
     showMedia("slides");
     go("detail");
   }
-
+ 
   function showMedia(kind){
     var sw = document.getElementById("slidewrap"), vw = document.getElementById("videowrap");
     var tp = document.getElementById("tgPoster"), tv = document.getElementById("tgVideo");
@@ -375,7 +376,7 @@
     var v = document.getElementById("vid");
     try{ v.pause(); }catch(e){}
   }
-
+ 
   // ---- idle reset to cover (kiosk) ----
   var idleTimer = null;
   function resetIdle(){
@@ -395,3 +396,4 @@
 </script>
 </body>
 </html>
+ 
